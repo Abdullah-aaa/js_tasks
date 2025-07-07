@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="slider-container">
+      <div
+        style="
+          display: flex;
+          overflow: hidden;
+          transition: transform 1s ease-in-out;
+        "
+        class="slider"
+      >
+        <div style="background: url(wallpaper.png)" class="pics active"></div>
+        <div style="background: url(wp2567198.jpg)" class="pics"></div>
+        <div style="background: url(477150.jpg)" class="pics"></div>
+      </div>
+    </div>
+    <div style="transform: translateX(-50%); bottom: 20px; position: absolute; left: 50%;">
+      <button onclick="goPrev()">prev</button>
+      <button onclick="goNext()">next</button>
+    </div>
+    <script>
+      let slider = document.querySelector(".slider");
+      let pics = document.querySelectorAll(".pics");
+
+      let index = 0;
+      pics[index].classList.add("active");
+
+      const goNext = () => {
+        pics[index].classList.remove("active");
+        index = (index === pics.length - 1) ? 0 : index + 1;
+        pics[index].classList.add("active");
+        slider.style.transform = `translateX(-${index * 100}%)`;
+      };
+      const goPrev = () => {
+        pics[index].classList.remove("active");
+        index = (index === 0) ? pics.length - 1 : index - 1;
+        pics[index].classList.add("active");
+        slider.style.transform = `translateX(-${index * 100}%)`;
+      };
+    </script>
+  </body>
+</html>

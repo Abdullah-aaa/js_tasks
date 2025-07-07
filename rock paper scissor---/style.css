@@ -1,0 +1,54 @@
+.container{
+    justify-items: space-between;
+    align-content: center;
+
+    margin-top: 20px;
+    
+}
+
+body{
+    background-color: darkslategray;
+    color: white;
+}
+
+#btns{
+    gap: 200px;
+    margin-left: 45%;
+
+}
+.points{
+    text-align: center;
+    margin-left: 80px;
+    padding-bottom: 20px;
+}
+#pics{
+    display: flex;
+    justify-content: space-around;
+    height: 200px;
+padding-bottom: 80px;    
+}
+.computer{
+    animation: shake 0.8 linear
+};
+.player{
+    animation: shake 0.8 linear;
+};
+
+@keyframes shake {
+     
+    0%{
+        transform: rotate(-30deg);
+    }
+    25%{
+        transform: rotate(-30deg);
+    }
+    50%{
+        transform: rotate(-30deg);
+    }
+    75%{
+        transform: rotate(-30deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}

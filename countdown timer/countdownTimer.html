@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    ==========================================first way======================================
+    <div style="flex-direction: column">
+      <div id="end">coming soon</div>
+      <div style="padding: 10px">
+        <span id="hrs">0</span>
+        <span>:</span>
+        <span id="min">0</span>
+        <span>:</span>
+        <span id="sec">0</span>
+      </div>
+    </div>
+
+    <script>
+      console.log(Date());
+      let cntEnd = "July 23 2024 12:00:00 PM";
+      let end = document.getElementById("end");
+      let hrs = document.getElementById("hrs");
+      let mins = document.getElementById("min");
+      let sec = document.getElementById("sec");
+
+      setInterval(() => {
+        let last = new Date(cntEnd);
+        let now = new Date();
+        end.innerText = cntEnd;
+        let diff = (last - now) / 1000;
+        if (diff < 0) {
+          return;
+        }
+        hrs.innerHTML = Math.floor(diff / 3600) % 24;
+        mins.innerHTML = Math.floor(diff / 60) % 60;
+        sec.innerHTML = Math.floor(diff) % 60;
+      }, 1000);
+    </script>
+    ====================================== second way ========================================= -->
+    <div id="end" style="padding-right: 10px">coming soon</div>
+    <br />
+    <div>
+      <input type="text" readonly value="0" />
+      <br />
+      <label for="">hours</label>
+    </div>
+    <div>
+      <input type="text" readonly value="0" />
+      <br />
+      <label for="">mins</label>
+    </div>
+    <div>
+      <input type="text" readonly value="0" />
+      <br />
+      <label for="">sec</label>
+    </div>
+
+    <script>
+      let inputs = document.querySelectorAll("input");
+      let cntEnd = "July 24 2024 2:00 AM";
+      let end = document.getElementById("end");
+
+      setInterval(() => {
+        let last = new Date(cntEnd);
+        let now = new Date();
+        let diff = (last - now) / 1000;
+        inputs[0].value = Math.floor(diff / 3600) % 24;
+        inputs[1].value = Math.floor(diff / 60) % 60;
+        inputs[2].value = Math.floor(diff) % 60;
+      }, 1000);
+    </script>
+  </body>
+</html>

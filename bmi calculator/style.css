@@ -1,0 +1,40 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    text-align: center;
+    background-image: url(./OIP.jfif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div{
+    width: 50%;
+    margin: 20%;
+    position: absolute;
+    margin-top: 5%;
+    padding: 5%;
+    background-color: rgba(0, 0, 0,0.7);
+    }
+
+    p{
+        font-size: large;
+        font-weight: 500;
+        color: white;
+        outline: none;
+    }
+
+    #btn{
+        background-color: blue;
+        border-radius: 5px;
+        color: lightblue;
+        margin: 20px;
+        padding: 7px;
+        width: 100px;
+        cursor: pointer;
+
+    }
+    #weight, #height {
+        background: transparent;
+        text-align: left;
+        color: #fff;
+    } 

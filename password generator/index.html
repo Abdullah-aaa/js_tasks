@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Password generator</h2>
+      <div class="display">
+        <input type="text" id="password" />
+      </div>
+      <button onclick="createpassword()">Generate</button>
+    </div>
+    <script>
+      const password = document.getElementById("password");
+      const lenght = 10;
+
+      const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const lower = "abcdefghijklmnopqrstuvwxyz";
+      const num = "0123456789";
+
+      let allchar = upper + lower + num;
+
+      function createpassword() {
+        let pass = "";
+        pass += upper[Math.floor(Math.random() * upper.length)];
+        pass += lower[Math.floor(Math.random() * lower.length)];
+        pass += num[Math.floor(Math.random() * num.length)];
+
+        while (lenght > pass.length) {
+          pass += allchar[Math.floor(Math.random() * allchar.length)];
+        }
+        password.value = pass;
+      }
+    </script>
+  </body>
+</html>

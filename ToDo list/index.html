@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>ToDo list</h2>
+    <br />
+    <input type="text" id="input" />
+    <button id="add" onclick="add()">+</button>
+    <div id="list" style="cursor: pointer;"></div>
+
+    <script>
+      let input = document.getElementById("input");
+      let list = document.getElementById("list");
+      let add = document.getElementById("add");
+
+      add.addEventListener("click", function () {
+        let para = document.createElement("p");
+        para.innerHTML = input.value;
+        list.appendChild(para);
+        input.value = "";
+
+        para.addEventListener('click', function(){
+            para.style.textDecoration = 'line-through';
+        });
+        para.addEventListener('dblclick', function(){
+            list.removeChild(para);
+        });
+
+      });
+ 
+
+
+    </script>
+  </body>
+</html>

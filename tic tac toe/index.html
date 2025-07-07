@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .col {
+        width: 95px;
+        height: 95px;
+        border: 5px solid black;
+        text-align: center;
+        font-size: 80px;
+        font-weight: bolder;
+        padding-top: 1rem;
+      }
+      .row {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div onclick="handleclick(this)" id="0" class="col"></div>
+        <div onclick="handleclick(this)" id="1" class="col"></div>
+        <div onclick="handleclick(this)" id="2" class="col"></div>
+      </div>
+      <div class="row">
+        <div onclick="handleclick(this)" id="3" class="col"></div>
+        <div onclick="handleclick(this)" id="4" class="col"></div>
+        <div onclick="handleclick(this)" id="5" class="col"></div>
+      </div>
+      <div class="row">
+        <div onclick="handleclick(this)" id="6" class="col"></div>
+        <div onclick="handleclick(this)" id="7" class="col"></div>
+        <div onclick="handleclick(this)" id="8" class="col"></div>
+      </div>
+    </div>
+
+    <script>
+      let player = "X";
+      let array = Array(9).fill(null);
+      function handleclick(el) {
+          let click = document.querySelectorAll("col");
+          let id = el.id;
+          if(array[id] !== null) {return};
+        array[id] = player;
+        el.innerText = player;
+        player = player === "X" ? "O" : "X";
+        //console.log(array);
+        if (
+          (array[0] !== null && array[0] == array[1] && array[1] == array[2]) ||
+          (array[0] !== null && array[0] == array[3] && array[3] == array[6]) ||
+          (array[0] !== null && array[0] == array[4] && array[4] == array[8] )||
+          (array[1] !== null && array[1] == array[4] && array[4] == array[7] )||
+          (array[2] !== null && array[2] == array[4] && array[4] == array[6] )||
+          (array[2] !== null && array[2] == array[5] && array[5] == array[8] )||
+          (array[3] !== null && array[3] == array[4] && array[4] == array[5] )||
+          (array[6] !== null && array[6] == array[7] && array[7] == array[8] )
+        ) {
+            player = player === "X" ? "O" : "X";
+            setTimeout(()=>{
+                alert(`${player} wins`)
+            },1000);
+            
+        }
+        else if(!array.some((e) => e === null))
+        {
+            setTimeout(()=>{
+                alert('its draw')
+            },1000);  
+        }
+       
+      }
+      const reset =() =>{
+        array.fill(null);
+        el.innerText ="";
+
+      }
+    </script>
+  </body>
+</html>
